@@ -1,0 +1,84 @@
+From 886ac21a649b5efc5c4bb65896bacc55a0a98de8 Mon Sep 17 00:00:00 2001
+From: Alew <xalejandrow@gmail.com>
+Date: Mon, 22 Mar 2021 22:25:45 -0300
+Subject: [PATCH] =?UTF-8?q?Revert=20"Secci=C3=B3n=206=20Video=2021.=20Crea?=
+ =?UTF-8?q?ndo=20un=20Master=20Page"?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+This reverts commit ee9504da15194f710aee90c5d0232980b85bd5e6.
+---
+ routes/index.js    |  4 ----
+ views/index.pug    |  7 +++----
+ views/layout.pug   | 12 ------------
+ views/nosotros.pug |  7 -------
+ 4 files changed, 3 insertions(+), 27 deletions(-)
+ delete mode 100644 views/layout.pug
+ delete mode 100644 views/nosotros.pug
+
+diff --git a/routes/index.js b/routes/index.js
+index f2a3436..f955c6f 100644
+--- a/routes/index.js
++++ b/routes/index.js
+@@ -8,10 +8,6 @@ module.exports = function() {
+ 
+     // Ruta para el home
+     router.get('/', proyectosController.proyectosHome);// Ruta para el home
+-
+-    router.get('/nosotros', (req, res) =>{
+-        res.render('nosotros');
+-    });
+     return router;
+ }
+ 
+diff --git a/views/index.pug b/views/index.pug
+index dde330e..c74ba1f 100644
+--- a/views/index.pug
++++ b/views/index.pug
+@@ -1,4 +1,3 @@
+-extends layout
+-
+-block contenido
+-    h1 Inicio
+\ No newline at end of file
++h1 hola
++p hola
++a(href="#") Ir a elemento
+\ No newline at end of file
+diff --git a/views/layout.pug b/views/layout.pug
+deleted file mode 100644
+index 056931d..0000000
+--- a/views/layout.pug
++++ /dev/null
+@@ -1,12 +0,0 @@
+-doctype html
+-html(lang="en")
+-    head
+-        meta(charset="UTF-8")
+-        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+-        link(rel="stylesheet", href="css/bootstrap.css")
+-        title Document
+-    body 
+-        block contenido
+-
+-        block despuesContenido
+\ No newline at end of file
+diff --git a/views/nosotros.pug b/views/nosotros.pug
+deleted file mode 100644
+index c4f195b..0000000
+--- a/views/nosotros.pug
++++ /dev/null
+@@ -1,7 +0,0 @@
+-extends layout
+-
+-block contenido
+-    h1 Nosotros
+-
+-block despuesContenido
+-    h2 Yo voy después del contenido
+\ No newline at end of file
+-- 
+2.27.0
+
