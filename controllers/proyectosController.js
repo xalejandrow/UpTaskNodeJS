@@ -9,3 +9,7 @@ exports.formularioProyecto = (req, res) => {
         nombrePagina: 'Nuevo Proyecto'
     })
 }
+
+exports.nuevoProyecto = (req, res) => {
+    res.send('Enviaste el Formulario');
+}
