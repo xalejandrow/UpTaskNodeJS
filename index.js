@@ -30,18 +30,16 @@ app.set('views', path.join(__dirname, './views'));
 
 // Pasar var dump a la aplicación
 app.use((req, res, next) => {
+    // res.locals.year = 2019;
     res.locals.vardump = helpers.vardump;
     next();
 });
 
 // Aprendiendo Middleware
 app.use((req, res, next) => {
-    console.log('Yo soy un middleware');
-    next();
-});
-
-app.use((req, res, next) => {
-    console.log('Yo soy otro middleware');
+    const fecha = new Date();
+    res.locals.year = fecha.getFullYear();
+    // console.log('Yo soy un middleware');
     next();
 });
 

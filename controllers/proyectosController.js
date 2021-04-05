@@ -4,7 +4,7 @@ const slug = require('slug');
 exports.proyectosHome = async (req, res) => {
     const proyectos = await Proyectos.findAll();
     res.render('index', {
-        nombrePagina : 'Proyectos',
+        nombrePagina : 'Proyectos ' + res.locals.year,
         proyectos
     });
 }
