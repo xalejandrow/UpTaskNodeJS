@@ -4,7 +4,7 @@ const slug = require('slug');
 exports.proyectosHome = async (req, res) => {
     const proyectos = await Proyectos.findAll();
     res.render('index', {
-        nombrePagina : 'Proyectos ' + res.locals.year,
+        nombrePagina : 'Proyectos',
         proyectos
     });
 }
@@ -40,4 +40,9 @@ exports.nuevoProyecto = async(req, res) => {
         const proyecto = await Proyectos.create({ nombre });
         res.redirect('/');
     }
+}
+
+exports.proyectoPorUrl = (req, res) => {
+    // res.send('Listo');
+    res.send(req.params.url);
 }
