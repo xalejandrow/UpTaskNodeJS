@@ -7,7 +7,9 @@ block contenido
         //-  TODO - Formulario aqui
 
         //-  TODO - Listado de Pendientes
+        //- pre= vardump(proyecto)
 
         //- Acciones que se pueden realizar
         .contenedor-acciones
-            a(href="" class="boton") Editar Proyecto
+            a(href=`/proyecto/editar/${proyecto.id}` class="boton") Editar Proyecto
+            button#eliminar-proyecto(type="button" class="boton eliminar") Eliminar Proyecto

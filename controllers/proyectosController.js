@@ -72,3 +72,19 @@ exports.proyectoPorUrl = async (req, res, next) => {
         proyectos
     })
 }
+
+exports.formularioEditar = async (req, res) => {
+    const proyectos = await Proyectos.findAll();
+
+    const proyecto = await Proyectos.findOne({
+        where: {
+            id: req.params.id
+        }
+    });
+
+    // render a la vista
+    res.render('nuevoProyecto', {
+        nombrePagina: 'Editar Proyecto',
+        proyectos
+    })
+}
