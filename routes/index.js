@@ -19,6 +19,7 @@ module.exports = function() {
 
     // Listar Proyecto
     router.get('/proyectos/:url', proyectosController.proyectoPorUrl);
+    
     return router;
 }
 

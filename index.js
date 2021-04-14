@@ -21,6 +21,7 @@ const app = express();
 
 // Dónde cargar los archivos estáticos
 app.use(express.static('public'));
+// app.use(express.static(__dirname + '/public'));
 
 // Habilitar pug
 app.set('view engine','pug');
@@ -29,11 +30,11 @@ app.set('view engine','pug');
 app.set('views', path.join(__dirname, './views'));
 
 // Pasar var dump a la aplicación
-app.use((req, res, next) => {
-    // res.locals.year = 2019;
-    res.locals.vardump = helpers.vardump;
-    next();
-});
+// app.use((req, res, next) => {
+//     // res.locals.year = 2019;
+//     res.locals.vardump = helpers.vardump;
+//     next();
+// });
 
 // Habilitar bodyParser para leer datos del formulario
 app.use(bodyParser.urlencoded({extended: true}));
