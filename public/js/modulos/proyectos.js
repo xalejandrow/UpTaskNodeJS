@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const btnEliminar = document.querySelector('#eliminar-proyecto');
 
-if(btnEliminar){
+if (btnEliminar) {
     btnEliminar.addEventListener('click', e => {
         // console.log('diste click en eliminar');
         const urlProyecto = e.target.dataset.proyectoUrl;
@@ -18,30 +18,29 @@ if(btnEliminar){
             cancelButtonColor: '#d33',
             confirmButtonText: 'Sí, borrar',
             cancelButtonText: 'No, Cancelar'
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
                 // enviar petición a axios
                 const url = `${location.origin}/proyectos/${urlProyecto}`;
                 // console.log(url);
-                axios.delete(url, {params: urlProyecto})
-                    .then(function(respuesta){
+                axios.delete(url, { params: { urlProyecto } })
+                    .then(function (respuesta) {
                         console.log(respuesta);
-                    });
-                    return;
 
-              Swal.fire(
-                'Proyecto Eliminado',
-                'El Proyecto se ha eliminado',
-                'success'
-              );
-    
-            //   redireccionar al inicio
-            setTimeout(() => {
-                window.location.href = '/'
-            }, 3000);
-    
+                        // return;
+                        Swal.fire(
+                            'Proyecto Eliminado',
+                            respuesta.data,
+                            'success'
+                        );
+
+                        //   redireccionar al inicio
+                        setTimeout(() => {
+                            window.location.href = '/'
+                        }, 3000);
+                    });
             }
-          })
+        })
     })
 }
 

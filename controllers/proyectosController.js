@@ -127,3 +127,16 @@ exports.actualizarProyecto = async(req, res) => {
         res.redirect('/');
     }
 }
+
+exports.eliminarProyecto = async (req, res, next) => {
+    // req, query o params
+    // console.log(req.params);
+    // console.log(req.query);
+    const {urlProyecto} = req.query;
+
+    const resultado = await Proyectos.destroy({
+        where: { url: urlProyecto}
+    });
+
+    res.status(200).send('Proyecto Eliminado Correctamente');
+}
