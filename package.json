@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./index.js",
-    "start":"concurrently \"npm run dev \" \"npm run watch \"",
+    "start": "concurrently \"npm run dev \" \"npm run watch \"",
     "watch": "webpack -w --mode development"
   },
   "author": "Alew",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "concurrently": "^6.0.2",
     "express": "^4.17.1",
     "express-validator": "^6.10.0",
@@ -19,7 +20,8 @@
     "pug": "^3.0.2",
     "sequelize": "^6.6.2",
     "shortid": "^2.2.16",
-    "slug": "^4.0.3"
+    "slug": "^4.0.3",
+    "sweetalert2": "^10.16.3"
   },
   "devDependencies": {
     "@babel/core": "^7.13.15",
