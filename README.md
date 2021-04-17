@@ -21,3 +21,5 @@ Capitulo 52:
 
     diálogos de confirmación sweetalert2
         https://sweetalert2.github.io/
+    axios
+    https://github.com/axios/axios
