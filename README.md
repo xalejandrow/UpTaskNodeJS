@@ -23,3 +23,8 @@ Capitulo 52:
         https://sweetalert2.github.io/
     axios
     https://github.com/axios/axios
+
+Capitulo 61:
+    Iconos
+    https://fontawesome.com/
+    https://html2jade.org/

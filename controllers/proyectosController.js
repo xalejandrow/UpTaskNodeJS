@@ -66,9 +66,9 @@ exports.proyectoPorUrl = async (req, res, next) => {
         where: {
             proyectoId : proyecto.id
         },
-        include: [
-            { model: Proyectos }
-        ]
+        // include: [
+        //     { model: Proyectos }
+        // ]
     });
     // console.log(tareas);
 
