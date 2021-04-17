@@ -22,6 +22,12 @@ const Proyectos = db.define('proyectos', {
 
             proyecto.url = `${url}-${shortid.generate()}`;
         }
+        // ,beforeUpdate(proyecto){
+        //     console.log('Antes de Modificar en la BD');
+        //     const url = slug(proyecto.nombre).toLowerCase();
+
+        //     proyecto.url = `${url}-${shortid.generate()}`;
+        // }
     }
 });
 
