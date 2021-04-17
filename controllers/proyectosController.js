@@ -138,5 +138,9 @@ exports.eliminarProyecto = async (req, res, next) => {
         where: { url: urlProyecto}
     });
 
+    if(!resultado){
+        return next();
+    }
+
     res.status(200).send('Proyecto Eliminado Correctamente');
 }
