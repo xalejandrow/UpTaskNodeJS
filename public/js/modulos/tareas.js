@@ -14,7 +14,10 @@ if(tareas) {
 
             axios.patch(url, {idTarea})
             .then(function(respuesta){
-                console.log(respuesta);
+                // console.log(respuesta);
+                if(respuesta.status === 200){
+                    icono.classList.toggle('completo');
+                }
             })
         }
     });
