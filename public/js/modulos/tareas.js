@@ -1,4 +1,5 @@
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const tareas = document.querySelector('.listado-pendientes');
 
@@ -19,6 +20,39 @@ if(tareas) {
                     icono.classList.toggle('completo');
                 }
             })
+        }
+
+        if(e.target.classList.contains('fa-trash')){
+            // console.log('Eliminando..');
+            // console.log(e.target);
+            const tareaHTML = e.target.parentElement.parentElement,
+                 idTarea = tareaHTML.dataset.tarea;
+
+            // console.log(tareaHTML);
+            // console.log(idTarea);
+            Swal.fire({
+                title: 'Deseas borrar esta Tarea?',
+                text: "Una Tarea eliminada, no se puede recuperar!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, borrar',
+                cancelButtonText: 'No, Cancelar'
+            }).then((result) => {
+                if (result.value) {
+                    const url = `${location.origin}/tareas/${idTarea}`;
+                    // console.log('Eliminando');
+                    // enviar el delete por medio de axios
+                    axios.delete(url, { params: { idTarea }})
+                        .then(function(respuesta){
+                            console.log(respuesta);
+                        });
+
+                }
+
+            })
+
         }
     });
 }

@@ -46,3 +46,7 @@ exports.cambiarEstadoTarea = async (req, res) => {
 
     res.status(200).send('Actualizado');
 }
+
+exports.eliminarTarea = async (req, res) => {
+    res.send('Eliminando...');
+}
