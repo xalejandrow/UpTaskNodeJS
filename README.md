@@ -28,3 +28,8 @@ Capitulo 61:
     Iconos
     https://fontawesome.com/
     https://html2jade.org/
+
+Capitulo 73:
+    Hash password con Nodejs
+    https://www.npmjs.com/package/bcrypt
+    npm install --save bcrypt-nodejs
