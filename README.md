@@ -33,3 +33,12 @@ Capitulo 73:
     Hash password con Nodejs
     https://www.npmjs.com/package/bcrypt
     npm install --save bcrypt-nodejs
+
+Capitulo 74:
+    Validar formulario Crear Cuentas
+    https://www.npmjs.com/package/connect-flash
+    npm install --save connect-flash
+
+Nota: no se cuando lo instalo a expressValidator, istalar la @5.3.1, las más nuevas funcionan diferente y da error
+    https://express-validator.github.io/docs/
+    npm install --save express-validator@5.3.1 
