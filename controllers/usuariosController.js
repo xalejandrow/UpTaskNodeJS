@@ -20,7 +20,7 @@ exports.crearCuenta = async (req, res) => {
     } catch (error) {
         // console.log(error);
         res.render('crearCuenta', {
-            error: error.errors,
+            errores: error.errors,
             nombrePagina: 'Crear Cuenta en Uptask'
         })
     }
