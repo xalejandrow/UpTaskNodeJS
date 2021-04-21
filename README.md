@@ -42,3 +42,6 @@ Capitulo 74:
 Nota: no se cuando lo instalo a expressValidator, istalar la @5.3.1, las más nuevas funcionan diferente y da error
     https://express-validator.github.io/docs/
     npm install --save express-validator@5.3.1 
+
+Capitulo 76:
+    npm install --save cookie-parser express-session
