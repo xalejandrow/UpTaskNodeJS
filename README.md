@@ -45,3 +45,11 @@ Nota: no se cuando lo instalo a expressValidator, istalar la @5.3.1, las más nu
 
 Capitulo 76:
     npm install --save cookie-parser express-session
+
+Capitulo 79:
+    Instalar y configurar Passport
+    http://www.passportjs.org/
+    http://www.passportjs.org/packages/passport-local/
+    npm install passport-local
+    
+
