@@ -61,8 +61,11 @@ app.use(passport.session());
 // Pasar var dump a la aplicación
 app.use((req, res, next) => {
     // res.locals.year = 2019;
+    // console.log(req.user);
     res.locals.vardump = helpers.vardump;
     res.locals.mensajes = req.flash();
+    res.locals.usuario = {...req.user} || null;
+    // console.log(res.locals.usuario);
     next();
 });
 
