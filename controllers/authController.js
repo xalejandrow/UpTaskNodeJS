@@ -1,5 +1,7 @@
 const passport = require('passport');
 
+const Usuarios = require('../models/Usuarios');
+
 exports.autenticarUsuario = passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/iniciar-sesion',
@@ -24,4 +26,20 @@ exports.cerrarSesion = (req, res) => {
     req.session.destroy(() => {
         res.redirect('/iniciar-sesion');
     });
+};
+
+// genera un token si el usuario es válido
+exports.enviarToken = async (req, res) => {
+    // verificar que el usuario existe
+    const {email} = req.body;
+    const usuario = await Usuarios.findOne({where: {email} });
+
+    // Si no existe el usuario
+    if(!usuario){
+        req.flash('error', 'No existe esa cuenta');
+        res.render('restablecer', {
+            nombrePagina: 'Restablecer tu Contraseña',
+            mensajes: req.flash()
+        });
+    };
 };
