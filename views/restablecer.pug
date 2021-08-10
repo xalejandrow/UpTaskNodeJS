@@ -1,4 +1,4 @@
-doctype html
+<!DOCTYPE html>
 html(lang="en")
     head
         include partials/header
@@ -7,4 +7,13 @@ html(lang="en")
             h1= nombrePagina 
             p Agrega tu email para reestablecer la contraseña
             form.caja-login(method="POST" action="/restablecer")
+                .campo 
+                    label(for="email") E-mail: 
+                    input(type="email", name="email" placeholder="Tu Email" value= email) 
+                    //- input(type="email", name="email" placeholder="Tu Email" required) 
+                
+                .campo.enviar 
+                    input.boton(type="submit" value="Restablecer Password")
+                .campo.acciones 
+                    a(href="/iniciar-sesion") Ya lo recordé, volver a Login
                 
