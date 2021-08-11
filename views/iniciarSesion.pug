@@ -7,7 +7,14 @@ html(lang="en")
             h1 Iniciar Sesión en UpTask 
 
             if error 
-                p.alerta.error= error 
+                p.alerta.error= error
+            
+            if locals.mensajes 
+                .alertas 
+                    each categoria in Object.keys(locals.mensajes)
+                        each error in mensajes[categoria] 
+                            .alerta(class=`${categoria}`)
+                                p= error
                 
             form#formulario.caja.caja-login(method="POST" action="/iniciar-sesion")
                 .campo 
