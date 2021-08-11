@@ -52,4 +52,8 @@ Capitulo 79:
     http://www.passportjs.org/packages/passport-local/
     npm install passport-local
     
-
+Capitulo 93:
+    Instalar NodeMailer y crear cuenta MailTrap
+    https://nodemailer.com/about/
+    https://mailtrap.io/
+    npm install --save nodemailer juice html-to-text
