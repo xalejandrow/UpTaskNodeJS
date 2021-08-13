@@ -57,3 +57,8 @@ Capitulo 93:
     https://nodemailer.com/about/
     https://mailtrap.io/
     npm install --save nodemailer juice html-to-text
+
+
+Capitulo 100:
+    Creando variables de entorno para la Base de Datos
+    npm install --save dotenv
