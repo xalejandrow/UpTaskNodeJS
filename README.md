@@ -80,3 +80,12 @@ Capitulo 104:
     - para el usuario DB_USER y el password DB_PASS 
     - Host heroku config:set DB_HOST=Nombre_del_host_de_heroku
     - Puerto heroku config:set DB_PORT=3306 
+
+    heroku create --remote production
+    heroku config | grep CLEARDB_DATABASE_URL
+    heroku config:set DB_NOMBRE=heroku_eee162b8a43c484
+    heroku config:set DB_PASS=93ce2341
+    heroku config:set DB_HOST=us-cdbr-east-04.cleardb.com
+    heroku config:set DB_PORT=3306
+    heroku config | CLEARDB_DATABASE_URL
+    heroku config | grep CLEARDB_DATABASE_URL
