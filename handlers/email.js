@@ -35,7 +35,9 @@ const generarHTML = (archivo, opciones = {}) => {
 
 // exports.enviar = async (opciones) => {
 exports.enviar = (opciones) => {
-  // send mail with defined transport object
+  try {
+    
+    // send mail with defined transport object
   const html = generarHTML(opciones.archivo, opciones);
   const text = htmlToText.fromString(html);
 
@@ -52,6 +54,10 @@ exports.enviar = (opciones) => {
   // return enviarEmail.call(transport, transport.sendMail);
   const enviarEmail = info;
   return enviarEmail;
+  
+  } catch (error) {
+    console.log('error');
+  }
   
 };
 
