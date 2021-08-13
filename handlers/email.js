@@ -33,12 +33,14 @@ const generarHTML = (archivo, opciones = {}) => {
   return juice(html);
 };
 
-exports.enviar = async (opciones) => {
+// exports.enviar = async (opciones) => {
+exports.enviar = (opciones) => {
   // send mail with defined transport object
   const html = generarHTML(opciones.archivo, opciones);
   const text = htmlToText.fromString(html);
 
-  let info = await transport.sendMail({
+  // let info = await transport.sendMail({
+  let info = transport.sendMail({
     from: 'UpTask <no-reply@uptask.com>', // sender address
     to: opciones.usuario.email, // list of receivers
     subject: opciones.subject, // Subject line
@@ -50,5 +52,6 @@ exports.enviar = async (opciones) => {
   // return enviarEmail.call(transport, transport.sendMail);
   const enviarEmail = info;
   return enviarEmail;
+  
 };
 

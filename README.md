@@ -84,6 +84,7 @@ Capitulo 104:
     heroku create --remote production
     heroku config | grep CLEARDB_DATABASE_URL
     heroku config:set DB_NOMBRE=heroku_eee162b8a43c484
+    heroku config:set DB_USER=user_name
     heroku config:set DB_PASS=93ce2341
     heroku config:set DB_HOST=us-cdbr-east-04.cleardb.com
     heroku config:set DB_PORT=3306
