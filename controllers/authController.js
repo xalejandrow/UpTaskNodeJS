@@ -63,6 +63,7 @@ exports.enviarToken = async (req, res) => {
     const resetUrl = `http://${req.headers.host}/restablecer/${usuario.token}`;
 
     // console.log(resetUrl);
+    
     // Enviar el correo con el Token
     await enviarEmail.enviar({
         usuario,
