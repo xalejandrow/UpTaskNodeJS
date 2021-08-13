@@ -4,14 +4,15 @@ const juice = require('juice');
 const htmlToText = require('html-to-text');
 const util = require('util');
 const emailConfig = require('../config/email');
+const { text } = require('express');
 
 let transport = nodemailer.createTransport({
-    host: emailConfig.host,
-    port: emailConfig.port,
-    auth: {
-      user: emailConfig.user,
-      pass: emailConfig.pass, 
-    },
+  host: emailConfig.host,
+  port: emailConfig.port,
+  auth: {
+    user: emailConfig.user,
+    pass: emailConfig.pass,
+  },
 });
 
 // let mailOptions = 
@@ -27,16 +28,25 @@ let transport = nodemailer.createTransport({
 // transport.sendEmail(mailOptions);
 
 // generar HTML
-const generarHTML = () => {
-  const html = pug.renderFile(`${__dirname}/../views/emails/restablecer-password.pug`);
+const generarHTML = (archivo, opciones = {}) => {
+  const html = pug.renderFile(`${__dirname}/../views/emails/${archivo}.pug`, opciones);
   return juice(html);
 };
 
-// send mail with defined transport object
-let info = transport.sendMail({
+exports.enviar = async (opciones) => {
+  // send mail with defined transport object
+  const html = generarHTML(opciones.archivo, opciones);
+  const text = htmlToText.fromString(html);
+
+  let info = await transport.sendMail({
     from: 'UpTask <no-reply@uptask.com>', // sender address
-    to: "correo@correo.com", // list of receivers
-    subject: "Password Reset", // Subject line
-    text: "Hola", // plain text body
-    html: generarHTML() // html body
+    to: opciones.usuario.email, // list of receivers
+    subject: opciones.subject, // Subject line
+    text, // plain text body
+    html // html body
   });
+
+  const enviarEmail = util.promisify(info, transport);
+  return enviarEmail.call(transport, info);
+};
+
