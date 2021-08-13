@@ -46,7 +46,9 @@ exports.enviar = async (opciones) => {
     html // html body
   });
 
-  const enviarEmail = util.promisify(info, transport);
-  return enviarEmail.call(transport, info);
+  // const enviarEmail = util.promisify(transport.sendMail, transport);
+  // return enviarEmail.call(transport, transport.sendMail);
+  const enviarEmail = info;
+  return enviarEmail;
 };
 
