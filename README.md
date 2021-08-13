@@ -62,3 +62,21 @@ Capitulo 93:
 Capitulo 100:
     Creando variables de entorno para la Base de Datos
     npm install --save dotenv
+
+Capitulo 103:
+    Creamos un repositorio en Heroku
+    heroku create --remote production
+    Subimos el repositorio de código que está en github a Heroku
+    git push production master
+
+Capitulo 104:
+    Crear Base de datos en Heroku
+    Para saber el link a la base de datos, en Heroku -> Settings -> Config Vars o en la consola
+    heroku config | grep CLEARDB_DATABASE_URL
+    Configuramos la base de datos en Heroku en consola:
+    heroku config:set DB_NOMBRE=heroku_Nombre_de_base_datos
+    Otra Forma, en la Web de Heroku, con ADD, agregamos una variable llamada DB_NOMBRE y el valor heroku_Nombre_de_base_datos
+    Hacemos lo mismo:
+    - para el usuario DB_USER y el password DB_PASS 
+    - Host heroku config:set DB_HOST=Nombre_del_host_de_heroku
+    - Puerto heroku config:set DB_PORT=3306 

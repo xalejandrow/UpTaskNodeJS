@@ -1,4 +1,8 @@
 node_modules
+variables.env
+variables2.env
+.DS_Store
+
 # Logs
 logs
 *.log
