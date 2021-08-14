@@ -39,10 +39,18 @@ exports.enviar = async (opciones) => {
     
     // send mail with defined transport object
   const html = generarHTML(opciones.archivo, opciones);
-  const text = htmlToText.fromString(html);
+  const text = htmlToText.htmlToText(html);
 
   // let info = await transport.sendMail({
-  let info = await transport.sendMail({
+  // let info = await transport.sendMail({
+  //   from: 'UpTask <no-reply@uptask.com>', // sender address
+  //   to: opciones.usuario.email, // list of receivers
+  //   subject: opciones.subject, // Subject line
+  //   text, // plain text body
+  //   html // html body
+  // });
+
+  let emailOptions = ({
     from: 'UpTask <no-reply@uptask.com>', // sender address
     to: opciones.usuario.email, // list of receivers
     subject: opciones.subject, // Subject line
@@ -50,16 +58,17 @@ exports.enviar = async (opciones) => {
     html // html body
   });
 
-  const enviarEmail = util.promisify(info, transport);
-  return enviarEmail.call(transport, info);
+  // const enviarEmail = util.promisify(info, transport);
+  // return enviarEmail.call(transport, info);
   // const enviarEmail = util.promisify(transport.sendMail, transport);
   // return enviarEmail.call(transport, transport.sendMail);
-  // const enviarEmail = info;
-  // return enviarEmail;
+  const enviarEmail = await transport.sendMail(emailOptions);
+  return enviarEmail;
   
   } catch (error) {
     console.log('error');
   }
   
 };
+
 
