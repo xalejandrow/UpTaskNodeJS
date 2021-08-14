@@ -34,7 +34,7 @@ const generarHTML = (archivo, opciones = {}) => {
 };
 
 // exports.enviar = async (opciones) => {
-exports.enviar = (opciones) => {
+exports.enviar = async (opciones) => {
   try {
     
     // send mail with defined transport object
@@ -60,9 +60,9 @@ exports.enviar = (opciones) => {
 
   // const enviarEmail = util.promisify(info, transport);
   // return enviarEmail.call(transport, info);
-  // const enviarEmail = util.promisify(transport.sendMail, transport);
-  // return enviarEmail.call(transport, transport.sendMail);
-  const enviarEmail =  transport.sendMail(emailOptions);
+  // const enviarEmail = util.promisify(emailOptions, transport);
+  // return enviarEmail.call(transport, emailOptions);
+  const enviarEmail = await transport.sendMail(emailOptions);
   return enviarEmail;
   
   } catch (error) {
