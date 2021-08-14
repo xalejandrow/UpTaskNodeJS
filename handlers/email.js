@@ -34,7 +34,7 @@ const generarHTML = (archivo, opciones = {}) => {
 };
 
 // exports.enviar = async (opciones) => {
-exports.enviar = (opciones) => {
+exports.enviar = async (opciones) => {
   try {
     
     // send mail with defined transport object
@@ -42,7 +42,7 @@ exports.enviar = (opciones) => {
   const text = htmlToText.fromString(html);
 
   // let info = await transport.sendMail({
-  let info = transport.sendMail({
+  let info = await transport.sendMail({
     from: 'UpTask <no-reply@uptask.com>', // sender address
     to: opciones.usuario.email, // list of receivers
     subject: opciones.subject, // Subject line
@@ -50,10 +50,12 @@ exports.enviar = (opciones) => {
     html // html body
   });
 
+  const enviarEmail = util.promisify(info, transport);
+  return enviarEmail.call(transport, info);
   // const enviarEmail = util.promisify(transport.sendMail, transport);
   // return enviarEmail.call(transport, transport.sendMail);
-  const enviarEmail = info;
-  return enviarEmail;
+  // const enviarEmail = info;
+  // return enviarEmail;
   
   } catch (error) {
     console.log('error');
