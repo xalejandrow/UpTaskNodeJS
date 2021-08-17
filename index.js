@@ -83,3 +83,6 @@ app.listen(port, host, () => {
     console.log('El servidor está funcionando');
 });
 
+require('./handlers/email');
+
+
